@@ -1,19 +1,43 @@
 public class Store {
     public static void main(String[] args) {
-        int p1 = 15;
-        int p2 = 10;
-        int p3 = 5;
 
-        int total1 = p1 * 2;
-        int total2 = p2 * 3;
-        int total3 = p3 * 4;
+       final int PRICE1 = 15;
+        final int PRICE2 = 10;
+       final int PRICE3 = 5;
 
-        int totalSales = total1 + total2 + total3;
 
-        if (totalSales > 50) {
-            System.out.println("Good sales performance");
+        final int CANT1 = 2;
+        final int CANT2 = 3;
+        final int CANT3 = 4;
+
+       final int VENTAS_ESCALON= 50;
+
+      
+
+        
+
+int []  PRICES ={ PRICE1,PRICE2,PRICE3} ;
+int []  CANTIDADES = { CANT1,CANT2,CANT3};
+
+if (PRICES.length != CANTIDADES.length){
+
+throw new IllegalArgumentException("Precios y cantidades arregladas deben terner la misma longitud");
+}
+
+
+
+int totalSales = 0;
+
+for (int i=0 ; i < PRICES.length;i++){
+totalSales +=PRICES[i]*CANTIDADES[i];
+    
+}
+
+        if (totalSales > VENTAS_ESCALON) {
+            System.out.println("Buenas ventas");
         } else {
-            System.out.println("Low sales performance");
+            System.out.println("bajas ventas");
         }
     }
+
 }

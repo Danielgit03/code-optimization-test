@@ -1,12 +1,29 @@
 public class TaxCalculation {
+   
+    private static final double TAX_RATE_PRODUCT_1 = 0.15;
+    private static final double TAX_RATE_PRODUCT_2 = 0.10;
+
+    // Constante para el umbral de impuestos altos
+    private static final double HIGH_TAX_THRESHOLD = 50.0;
+
     public static void main(String[] args) {
-        double productPrice1 = 100;
-        double productPrice2 = 200;
-        double tax1 = productPrice1 * 0.15;
-        double tax2 = productPrice2 * 0.10;
-        double totalTax = tax1 + tax2;
         
-        if (totalTax > 50) {
+        double[] productPrices = {100.0, 200.0};
+        double[] taxRates = {TAX_RATE_PRODUCT_1, TAX_RATE_PRODUCT_2};
+
+        
+        if (productPrices.length != taxRates.length) {
+            throw new IllegalArgumentException("Product prices and tax rates arrays must be of the same length.");
+        }
+
+        
+        double totalTax = 0;
+        for (int i = 0; i < productPrices.length; i++) {
+            totalTax += productPrices[i] * taxRates[i];
+        }
+
+       
+        if (totalTax > HIGH_TAX_THRESHOLD) {
             System.out.println("High total tax: " + totalTax);
         } else {
             System.out.println("Low tax");
